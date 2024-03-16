@@ -1,12 +1,12 @@
 import React from "react";
 
-function TitleContent({title, content}) {
+function TitleContent({ title, content, containerStyle, contentStyle, otherStyle }) {
   return (
-    <div className="w-full flex flex-col items-center">
-      <h1 className="text-center text-[50px] font-Actor mt-[120px] w-[600px]">
+    <div className={"w-full flex flex-col gap-5 " + otherStyle}>
+      <h1 className={"text-[50px] font-Actor w-[600px] leading-[45px] " + containerStyle}>
         {title}
       </h1>
-      <p>{content}</p>
+      <p className={contentStyle}>{content}</p>
     </div>
   );
 }
