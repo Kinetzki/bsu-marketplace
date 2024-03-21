@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      Actor: ["Actor", "Archivo"]
+      Actor: ["Actor", "Archivo"],
+      Archivo:["Archivo", "sans-serif"]
     }
   },
   plugins: [],

@@ -6,7 +6,7 @@ function TitleContent({ title, content, containerStyle, contentStyle, otherStyle
       <h1 className={"text-[50px] font-Actor w-[600px] leading-[45px] " + containerStyle}>
         {title}
       </h1>
-      <p className={contentStyle}>{content}</p>
+      <p className={"font-Archivo text-[#ee4640b7] " + contentStyle}>{content}</p>
     </div>
   );
 }
