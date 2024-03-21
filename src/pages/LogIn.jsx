@@ -8,10 +8,11 @@ import InputField from "../components/InputField";
 import BackgroundCircle from "../components/BackgroundCircle";
 import Spinner from "../components/Spinner";
 import ScreenLoader from "../components/ScreenLoader";
+import { useNavigate } from "react-router-dom";
 
 function LogIn() {
   const [isLoading, setIsLoading] = useState(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -44,7 +45,13 @@ function LogIn() {
 
           <InputField placeholder={"Email Address"} type={"text"} />
           <InputField placeholder={"Password"} type={"password"} />
-          <Button1 text={"Log In"} otherStyle={"mt-[60px] text-[#ffffff]"} />
+          <Button1
+            text={"Log In"}
+            otherStyle={"mt-[60px] text-[#ffffff]"}
+            handleClick={() => {
+              navigate("/marketplace");
+            }}
+          />
           {/* <Spinner/> */}
         </ShadedContainer>
       </div>
