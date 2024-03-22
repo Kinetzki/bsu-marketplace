@@ -88,7 +88,7 @@ function Dashboard() {
           </ResponsiveContainer>
         </div>
         <div className="flex flex-col py-5 w-[100%]">
-          <div className="flex flex-col w-[100%] h-[180px] border-b-[var(--secondary-color)] border-b-[1px]">
+          <div className="flex flex-col w-[350px] h-[180px] border-b-[var(--secondary-color)] border-b-[1px]">
             <ResponsiveContainer width={"100%"} height={"100%"}>
               <BarChart data={dummyData.slice(0, 3)} width={100}>
                 <Bar dataKey={"product1"} fill="#c72c41" />
@@ -100,7 +100,7 @@ function Dashboard() {
               </BarChart>
             </ResponsiveContainer>
           </div>
-          <div className="flex flex-col w-[360px] h-[190px] justify-center">
+          <div className="flex flex-col w-[350px] h-[190px] justify-center">
             <ResponsiveContainer width={"100%"} height={"90%"}>
               <LineChart data={dummyData} width={100}>
                 <Line dataKey={"product1"} stroke="#c72c41" />
