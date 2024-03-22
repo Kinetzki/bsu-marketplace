@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ShadedContainer from "./ShadedContainer";
 import PanelLinks from "./PanelLinks";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function SidePanel({ panel }) {
+function SidePanel({ setpanel }) {
   const navigate = useNavigate();
+  const [activePanel, setActivePanel] = useState("");
+  const { panel } = useParams();
+  useEffect(() => {
+    setActivePanel(panel);
+  }, []);
   return (
     <ShadedContainer
       otherStyle={
@@ -21,45 +26,55 @@ function SidePanel({ panel }) {
           text={"Marketplace"}
           handleClick={() => {
             navigate("/marketplace");
-            panel("marketplace");
+            setpanel("marketplace");
+            setActivePanel("marketplace");
           }}
+          active={activePanel === "marketplace"}
         />
         <PanelLinks
           text={"Dashboard"}
           handleClick={() => {
             navigate("/dashboard");
-            panel("dashboard");
-
+            setpanel("dashboard");
+            setActivePanel("dashboard");
           }}
+          active={activePanel === "dashboard"}
         />
         <PanelLinks
           text={"Cart"}
           handleClick={() => {
             navigate("/cart");
-            panel("cart");
-
+            setpanel("cart");
+            setActivePanel("cart");
           }}
+          active={activePanel === "cart"}
         />
         <PanelLinks
           text={"History"}
           handleClick={() => {
             navigate("/history");
-            panel("history");
+            setpanel("history");
+            setActivePanel("history");
           }}
+          active={activePanel === "history"}
         />
         <PanelLinks
           text={"Account"}
           handleClick={() => {
             navigate("/account");
-            panel("account");
-
+            setpanel("account");
+            setActivePanel("account");
           }}
+          active={activePanel === "account"}
         />
       </div>
       <div className="mt-[100px] flex flex-col w-full">
-        <PanelLinks text={"Logout"} handleClick={()=>{
-            navigate("/login")
-        }}/>
+        <PanelLinks
+          text={"Logout"}
+          handleClick={() => {
+            navigate("/login");
+          }}
+        />
       </div>
     </ShadedContainer>
   );

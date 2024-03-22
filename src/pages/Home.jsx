@@ -35,7 +35,7 @@ function Home() {
     <>
       {isLoading && <ScreenLoader />}
       <div className="w-full flex">
-        <SidePanel panel={setCurrentPanel} />
+        <SidePanel setpanel={setCurrentPanel} />
         {currentPanel === "marketplace" && <Marketplace />}
         {currentPanel === "dashboard" && <Dashboard />}
         {currentPanel === "cart" && <Cart />}
