@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 //assets
-
+import logo from "../assets/images/logo.png";
 //components
 import ShadedContainer from "../components/ShadedContainer";
 import Button1 from "../components/Button1";
@@ -23,6 +23,14 @@ function LogIn() {
     <>
       {isLoading && <ScreenLoader />}
       <div className="w-full min-h-[100vh] flex flex-col items-center justify-center relative overflow-hidden">
+        <img
+          src={logo}
+          alt=""
+          className="absolute w-[200px] top-6 left-10 cursor-pointer"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
         <BackgroundCircle
           position={
             "w-[1000px] bottom-[-30%] right-[-10%] z-[-1] opacity-[0.3]"
@@ -33,7 +41,7 @@ function LogIn() {
         />
         <ShadedContainer
           otherStyle={
-            "flex flex-col gap-4 items-center w-[400px] shadow-[0_0_50px_1px] shadow-[#c72c412a] bg-[#510a324a] rounded-[20px]"
+            "flex flex-col gap-4 items-center w-[400px] shadow-[0_0_50px_1px] shadow-[#c72c412a] bg-[#510a324a] rounded-[6px]"
           }
         >
           <div className="w-full flex flex-col items-center mb-[15px] gap-1">
@@ -45,9 +53,25 @@ function LogIn() {
 
           <InputField placeholder={"Email Address"} type={"text"} />
           <InputField placeholder={"Password"} type={"password"} />
+          <div className="flex gap-1 items-center text-[13px]">
+            <h1
+              className="leading-none
+          "
+            >
+              Not yet registered?
+            </h1>
+            <h1
+              className="underline cursor-pointer"
+              onClick={() => {
+                navigate("/register");
+              }}
+            >
+              Register
+            </h1>
+          </div>
           <Button1
             text={"Log In"}
-            otherStyle={"mt-[60px] text-[#ffffff]"}
+            otherStyle={"text-[#ffffff]"}
             handleClick={() => {
               navigate("/marketplace");
             }}

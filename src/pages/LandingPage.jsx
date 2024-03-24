@@ -14,6 +14,7 @@ import ShadedContainer from "../components/ShadedContainer";
 import TitleContent from "../components/TitleContent";
 import Card1 from "../components/Card1";
 import ScreenLoader from "../components/ScreenLoader";
+import Footer from "../components/Footer";
 
 function LandingPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -129,9 +130,7 @@ function LandingPage() {
             </svg>
           </Card1>
         </div>
-        <ShadedContainer
-          otherStyle={"w-[85%] flex flex-col items-center mt-[60px]"}
-        ></ShadedContainer>
+        <Footer/>
       </div>
     </>
   );

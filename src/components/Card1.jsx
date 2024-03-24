@@ -3,7 +3,7 @@ import ShadedContainer from "./ShadedContainer";
 
 function Card1({children, title, content}) {
   return (
-    <ShadedContainer otherStyle={"bg-[#510a325a] flex flex-col w-[380px] h-[250px] items-start gap-1 p-0 px-5 py-8"}>
+    <ShadedContainer otherStyle={"bg-[#510a325a] flex flex-col w-[380px] h-[250px] items-start gap-1 p-0 px-5 py-8 rounded-[20px]"}>
       {children}
       <h1 className="text-[25px] mt-[15px] font-Archivo">{title}</h1>
       <p className="leading-[20px] text-[14px] font-Archivo">

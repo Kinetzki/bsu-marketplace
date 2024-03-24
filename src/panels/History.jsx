@@ -1,8 +1,11 @@
 import React from 'react'
+import Banner from '../components/Banner'
 
 function History() {
   return (
-    <div>History</div>
+    <div className="w-full min-h-screen flex flex-col">
+      <Banner title="History"/>
+    </div>
   )
 }
 

@@ -8,6 +8,7 @@ import Cart from "../panels/Cart";
 import Account from "../panels/Account";
 import History from "../panels/History";
 import ScreenLoader from "../components/ScreenLoader";
+import Items from "../panels/Items";
 
 function Home() {
   const [currentPanel, setCurrentPanel] = useState("marketplace");
@@ -16,7 +17,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const panels = ["marketplace", "dashboard", "cart", "history", "account"];
+    const panels = ["marketplace", "dashboard", "cart", "history", "account", "items"];
 
     if (panels.includes(panel)) {
       setCurrentPanel(panel);
@@ -41,6 +42,7 @@ function Home() {
         {currentPanel === "cart" && <Cart />}
         {currentPanel === "history" && <History />}
         {currentPanel === "account" && <Account />}
+        {currentPanel === "items" && <Items />}
       </div>
     </>
   );

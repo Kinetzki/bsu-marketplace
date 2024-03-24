@@ -1,12 +1,12 @@
 import React from 'react'
 import Banner from '../components/Banner'
 
-function Cart() {
+function Items() {
   return (
     <div className="w-full min-h-screen flex flex-col">
-      <Banner title="Cart"/>
+      <Banner title="Items"/>
     </div>
   )
 }
 
-export default Cart
+export default Items

@@ -1,6 +1,9 @@
 import React from "react";
 //assets
 import avatar from "../assets/images/avatar.svg";
+import revenue from "../assets/icons/revenue.svg";
+import arrowDown from "../assets/icons/arrowDown.svg";
+//components
 import {
   Area,
   AreaChart,
@@ -13,10 +16,12 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  Line
+  Line,
 } from "recharts";
 import ShadedContainer from "../components/ShadedContainer";
 import DashCard from "../components/DashCard";
+import Banner from "../components/Banner";
+import DashDropdown from "../components/DashDropdown";
 
 function Dashboard() {
   const dummyData = [
@@ -45,75 +50,141 @@ function Dashboard() {
       product1: 720,
       product2: 820,
     },
+    {
+      name: "Ken",
+      product1: 120,
+      product2: 220,
+    },
+    {
+      name: "Ken1",
+      product1: 220,
+      product2: 320,
+    },
+    {
+      name: "Ken2",
+      product1: 120,
+      product2: 420,
+    },
   ];
   return (
-    <div className="w-full p-3 flex flex-col gap-2">
-      <div className="flex w-full gap-3 h-[30%]">
+    <div className="w-full min-h-screen flex flex-col gap-3">
+      <Banner title="Dashboard" />
+      <div className="flex gap-3 px-2">
         <DashCard
-          title={"User"}
-          content={"Paul Kenneth S. Quinto"}
-          description={"20-03192"}
-          icon={avatar}
+          icon={revenue}
+          title={"Total Sales"}
+          content={"500"}
+          description={"+25% increase"}
         />
         <DashCard
-          title={"Items"}
-          content={"10"}
-          description={"+23 % since last month"}
-          icon={avatar}
+          icon={revenue}
+          title={"Total Sales"}
+          content={"500"}
+          description={"+25% increase"}
         />
-        <DashCard title={"Sales"} content={"Php 5,000.00"} icon={avatar} />
+        <DashCard
+          icon={revenue}
+          title={"Total Sales"}
+          content={"500"}
+          description={"+25% increase"}
+        />
+        <DashCard
+          icon={revenue}
+          title={"Total Sales"}
+          content={"500"}
+          description={"+25% increase"}
+        />
       </div>
-      <ShadedContainer otherStyle="w-full bg-[#510a321a] py-3 h-[20%]">
-        <h1>Tracking details</h1>
-      </ShadedContainer>
-      <ShadedContainer otherStyle={"flex py-2 px-0 w-full h-full"}>
-        <div className="w-[200%] h-[410px] border-r-[1px] border-[var(--secondary-color)]">
-          <div className="flex w-full flex-col px-5">
-            <h1>Total Purchases</h1>
-            <h1 className="text-[20px]">9000</h1>
-          </div>
-          <ResponsiveContainer width={"100%"} height={"90%"}>
-            <AreaChart data={dummyData}>
-              <XAxis dataKey={"name"} stroke="#c72c41" />
-              <YAxis stroke="#c72c41" />
-              <Legend />
-              <Tooltip />
-              <Area
-                dataKey={"product1"}
-                type={"monotone"}
-                stroke="#c72c41"
-                fill="#510a326f"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-        <div className="flex flex-col py-5 w-[100%]">
-          <div className="flex flex-col w-[350px] h-[180px] border-b-[var(--secondary-color)] border-b-[1px]">
-            <ResponsiveContainer width={"100%"} height={"100%"}>
-              <BarChart data={dummyData.slice(0, 3)} width={100}>
-                <Bar dataKey={"product1"} fill="#c72c41" />
-                <Bar dataKey={"product2"} fill="#ee4540" />
+      <div className="px-2 w-full h-full pb-[5px]">
+        <ShadedContainer otherStyle={"h-full flex px-0 py-0 rounded-[10px]"}>
+          <div className="w-[65%] border-r-[1px] border-[var(--secondary-color)] px-8 box-border flex pt-[30px]">
+            <ResponsiveContainer width={"100%"} height={"80%"}>
+              <div className="flex mb-[30px] justify-between items-center">
+                <div className="flex flex-col">
+                  <h1 className="text-[13px]">Total Revenue</h1>
+                  <h1 className="text-[25px] font-Archivo leading-none">
+                    Php 850,000
+                  </h1>
+                </div>
+                {/* Dropdowns */}
+                <div className="flex gap-2">
+                  <DashDropdown text="All items" />
+                  <DashDropdown text="This month" />
+                </div>
+              </div>
+              {/* Chart */}
+              <AreaChart
+                data={dummyData}
+                margin={{
+                  left: -20,
+                  bottom: 5,
+                }}
+              >
                 <XAxis dataKey={"name"} stroke="#c72c41" />
                 <YAxis stroke="#c72c41" />
                 <Legend />
                 <Tooltip />
-              </BarChart>
+                <Area
+                  dataKey={"product1"}
+                  type={"monotone"}
+                  fill="#510a32"
+                  stroke="#c72c41"
+                />
+              </AreaChart>
             </ResponsiveContainer>
           </div>
-          <div className="flex flex-col w-[350px] h-[190px] justify-center">
-            <ResponsiveContainer width={"100%"} height={"90%"}>
-              <LineChart data={dummyData} width={100}>
-                <Line dataKey={"product1"} stroke="#c72c41" />
-                <Line dataKey={"product2"} stroke="#ee4540" />
-                <XAxis dataKey={"name"} stroke="#c72c41" />
-                <YAxis stroke="#c72c41" />
-                <Legend />
-                <Tooltip />
-              </LineChart>
-            </ResponsiveContainer>
+          {/* Side Charts */}
+          <div className="w-[35%] flex flex-col">
+            <div className="h-[50%] w-full border-b-[1px] border-b-[var(--secondary-color)] flex justify-center pt-[20px]">
+              <ResponsiveContainer width={"90%"} height={"80%"}>
+                <div className="mb-[10px]">
+                  <h1 className="text-[12px]">Total Sales</h1>
+                  <h1 className="text-[20px] leading-none">520</h1>
+                </div>
+
+                <BarChart
+                  data={dummyData}
+                  margin={{
+                    left: -20,
+                    bottom: 5,
+                  }}
+                >
+                  <XAxis dataKey={"name"} stroke="#c72c41" fontSize={"12"} />
+                  <YAxis stroke="#c72c41" fontSize={"12"} />
+                  <Tooltip />
+                  <Bar dataKey={"product1"} type={"monotone"} fill="#510a32" />
+                  <Bar
+                    dataKey={"product2"}
+                    type={"monotone"}
+                    fill="#510a325f"
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="h-[50%] w-full flex justify-center pt-[20px]">
+            <ResponsiveContainer width={"90%"} height={"70%"}>
+                <div className="mb-[10px]">
+                  <h1 className="text-[12px]">Total Purchase</h1>
+                  <h1 className="text-[20px] leading-none">Php 3,000</h1>
+                </div>
+                <LineChart
+                  data={dummyData.slice(0,7)}
+                  margin={{
+                    left: -20,
+                    bottom: 5,
+                    right: 0
+                  }}
+                >
+                  <XAxis dataKey={"name"} stroke="#c72c41" fontSize={"12"} />
+                  <YAxis stroke="#c72c41" fontSize={"12"} />
+                  <Tooltip />
+                  <Line dataKey={"product1"} type={"monotone"} stroke="#c72c41" />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
           </div>
-        </div>
-      </ShadedContainer>
+        </ShadedContainer>
+      </div>
     </div>
   );
 }

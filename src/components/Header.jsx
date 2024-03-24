@@ -1,6 +1,7 @@
 import React from "react";
 import Button1 from "./Button1";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.png";
 
 function Header() {
   const navigate = useNavigate();
@@ -8,7 +9,14 @@ function Header() {
     <div className="w-full justify-between flex px-10 h-[80px] items-center">
       <div className="flex items-center">
         {/* Logo */}
-        <h1>Hello</h1>
+        <img
+          src={logo}
+          alt=""
+          className="w-[180px] cursor-pointer"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
       </div>
       <div className="flex gap-12 items-center">
         <ul className="flex gap-10 font-Archivo">
