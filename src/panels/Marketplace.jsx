@@ -25,6 +25,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useParams } from "react-router-dom";
 import ItemCard from "../components/ItemCard";
+import Dropdown from "../components/Dropdown";
 
 function Marketplace() {
   const [isLoading, setIsLoading] = useState(true);
@@ -165,6 +166,88 @@ function Marketplace() {
                 sales="1,000"
                 orgIcon={cursor}
                 productIcon={bag1}
+              />
+            </SwiperSlide>
+          </Swiper>
+        </div>
+
+        {/* Categories */}
+        <Banner
+          title={"Categories"}
+          utils={<Dropdown text="Organizational Shirts" items={["Organizational Shirts", "Lanyards", "Bags", "Pins", "Materials"]}/>}
+        />
+        <div className="px-5 py-10">
+          <Swiper
+            navigation
+            modules={[Pagination, Navigation]}
+            freeMode={true}
+            slidesPerView={4}
+            spaceBetween={"20px"}
+          >
+            <SwiperSlide>
+              <ItemCard
+                org="CURSOR"
+                details="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Minus recusandae vitae sit perspiciatis? Deleniti, facilis."
+                name="Org Shirt"
+                sales="200"
+                orgIcon={cursor}
+                productIcon={shirt1}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <ItemCard
+                org="COE"
+                details="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Minus recusandae vitae sit perspiciatis? Deleniti, facilis."
+                name="Org Shirt"
+                sales="200"
+                orgIcon={coe}
+                productIcon={shirt2}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <ItemCard
+                org="JIEE"
+                details="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Minus recusandae vitae sit perspiciatis? Deleniti, facilis."
+                name="Org Shirt"
+                sales="352"
+                orgIcon={jiee}
+                productIcon={shirt3}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <ItemCard
+                org="COE"
+                details="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Minus recusandae vitae sit perspiciatis? Deleniti, facilis."
+                name="Org Shirt"
+                sales="200"
+                orgIcon={coe}
+                productIcon={shirt2}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <ItemCard
+                org="CURSOR"
+                details="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Minus recusandae vitae sit perspiciatis? Deleniti, facilis."
+                name="Org Shirt"
+                sales="200"
+                orgIcon={cursor}
+                productIcon={shirt1}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <ItemCard
+                org="COE"
+                details="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Minus recusandae vitae sit perspiciatis? Deleniti, facilis."
+                name="Org Shirt"
+                sales="200"
+                orgIcon={coe}
+                productIcon={shirt2}
               />
             </SwiperSlide>
           </Swiper>

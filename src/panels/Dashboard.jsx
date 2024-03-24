@@ -115,9 +115,9 @@ function Dashboard() {
                   </h1>
                 </div>
                 {/* Dropdowns */}
-                <div className="flex gap-2">
-                  <DashDropdown text="All items" />
-                  <DashDropdown text="This month" />
+                <div className="flex gap-2 font-Archivo">
+                  <DashDropdown text="All items" items={["All items","Item 1", "Item 2"]}/>
+                  <DashDropdown text="This month" items={["Last Month", "This Year", "Last Year"]}/>
                 </div>
               </div>
               {/* Chart */}

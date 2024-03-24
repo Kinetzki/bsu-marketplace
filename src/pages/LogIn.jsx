@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 //assets
 import logo from "../assets/images/logo.png";
+
 //components
 import ShadedContainer from "../components/ShadedContainer";
 import Button1 from "../components/Button1";
@@ -10,11 +11,11 @@ import Spinner from "../components/Spinner";
 import ScreenLoader from "../components/ScreenLoader";
 import { useNavigate } from "react-router-dom";
 import checkGmail from "../helpers/checkEmail";
+
 function LogIn() {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-
   const handleEmail = (e) => {
     console.log(e.target.value)
     setEmail(e.target.value);
