@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //assets
 import avatar from "../assets/images/avatar.svg";
 import revenue from "../assets/icons/revenue.svg";
@@ -22,6 +22,7 @@ import ShadedContainer from "../components/ShadedContainer";
 import DashCard from "../components/DashCard";
 import Banner from "../components/Banner";
 import DashDropdown from "../components/DashDropdown";
+import ScreenLoader from "../components/ScreenLoader";
 
 function Dashboard() {
   const dummyData = [
@@ -66,8 +67,15 @@ function Dashboard() {
       product2: 420,
     },
   ];
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
   return (
-    <div className="w-full min-h-screen flex flex-col gap-3">
+    <div className="w-full min-h-screen flex flex-col gap-3 relative">
+      {isLoading && <ScreenLoader otherstyle={"z-[2]"} />}
       <Banner title="Dashboard" />
       <div className="flex gap-3 px-2">
         <DashCard

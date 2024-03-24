@@ -18,14 +18,16 @@ import Footer from "../components/Footer";
 
 function LandingPage() {
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   }, []);
+
   return (
     <>
-      {isLoading && <ScreenLoader />}
+      {isLoading && <ScreenLoader otherstyle={"z-[999]"}/>}
       <div className="flex flex-col items-center justify-start overflow-x-hidden min-h-screen w-full">
         <Header />
         <div className="flex w-full justify-center gap-[100px] py-[50px] relative">

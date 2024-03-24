@@ -23,7 +23,7 @@ function Register() {
 
   return (
     <>
-      {isLoading && <ScreenLoader />}
+      {isLoading && <ScreenLoader otherstyle={"z-[9999]"}/>}
       <div className="w-full min-h-[100vh] flex flex-col items-center justify-center relative overflow-hidden">
       <img
           src={logo}

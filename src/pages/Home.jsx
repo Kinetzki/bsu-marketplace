@@ -34,7 +34,7 @@ function Home() {
 
   return (
     <>
-      {isLoading && <ScreenLoader />}
+      {isLoading && <ScreenLoader otherstyle={"z-[9999]"}/>}
       <div className="w-full flex">
         <SidePanel setpanel={setCurrentPanel} />
         {currentPanel === "marketplace" && <Marketplace />}

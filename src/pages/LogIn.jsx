@@ -9,9 +9,22 @@ import BackgroundCircle from "../components/BackgroundCircle";
 import Spinner from "../components/Spinner";
 import ScreenLoader from "../components/ScreenLoader";
 import { useNavigate } from "react-router-dom";
-
+import checkGmail from "../helpers/checkEmail";
 function LogIn() {
   const [isLoading, setIsLoading] = useState(true);
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
+  const handleEmail = (e) => {
+    console.log(e.target.value)
+    setEmail(e.target.value);
+  };
+
+  const handlePass = (e) => {
+    console.log(e.target.value)
+    setPass(e.target.value);
+  };
+
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
@@ -21,7 +34,7 @@ function LogIn() {
 
   return (
     <>
-      {isLoading && <ScreenLoader />}
+      {isLoading && <ScreenLoader otherstyle={"z-[99]"} />}
       <div className="w-full min-h-[100vh] flex flex-col items-center justify-center relative overflow-hidden">
         <img
           src={logo}
@@ -50,9 +63,8 @@ function LogIn() {
             </h1>
             <p className=" italic">Example: 22-12312@g.batstate-u.edu.ph</p>
           </div>
-
-          <InputField placeholder={"Email Address"} type={"text"} />
-          <InputField placeholder={"Password"} type={"password"} />
+          <InputField placeholder={"Email Address"} type={"text"} handleChange={handleEmail}/>
+          <InputField placeholder={"Password"} type={"password"} handleChange={handlePass}/>
           <div className="flex gap-1 items-center text-[13px]">
             <h1
               className="leading-none
@@ -74,6 +86,11 @@ function LogIn() {
             otherStyle={"text-[#ffffff]"}
             handleClick={() => {
               navigate("/marketplace");
+              // const isValid = checkGmail(email);
+              // if (isValid) {
+              //   navigate("/marketplace");
+              //   console.log("Email is Valid");
+              // }
             }}
           />
           {/* <Spinner/> */}

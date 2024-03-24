@@ -8,15 +8,19 @@ import setting from "../assets/icons/setting.svg";
 import ShadedContainer from "./ShadedContainer";
 import PanelLinks from "./PanelLinks";
 import { useNavigate, useParams } from "react-router-dom";
+import { useUserStore } from "../statemanager/userStore";
 
 function SidePanel({ setpanel }) {
   const navigate = useNavigate();
   const [activePanel, setActivePanel] = useState("");
   const [showAccount, setShowAccount] = useState(false);
   const { panel } = useParams();
+  const client = useUserStore((state) => state.user);
+
   useEffect(() => {
     setActivePanel(panel);
   }, []);
+  
   return (
     <ShadedContainer
       otherStyle={
@@ -87,7 +91,7 @@ function SidePanel({ setpanel }) {
       >
         {/* Account Options */}
         {showAccount && (
-          <div className="absolute bg-[var(--accent-color)] w-full top-[-110px] left-0 h-[100px] rounded-[20px] p-2">
+          <div className="absolute bg-[#c72c417f] w-full top-[-110px] left-0 h-[100px] rounded-[20px] p-2 gap-2 flex flex-col">
             <PanelLinks
               text={"Account"}
               otherStyle={"text-white"}
@@ -100,7 +104,7 @@ function SidePanel({ setpanel }) {
               text={"Logout"}
               otherStyle={"text-white"}
               handleClick={() => {
-                navigate("/login");
+                navigate("/");
               }}
             />
           </div>
@@ -108,7 +112,7 @@ function SidePanel({ setpanel }) {
         <div className="flex items-center gap-2">
           <img src={avatar} alt="" className="w-[42px] h-[42px]" />
           <div className="flex flex-col truncate text-ellipsis overflow-hidden justify-self-center">
-            <h1 className="text-[15px] leading-none">20-03192</h1>
+            <h1 className="text-[15px] leading-none">{client}</h1>
             <h1 className="text-[13px]">Student</h1>
           </div>
         </div>
